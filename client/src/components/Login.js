@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { isPropertySignature } from "typescript";
+import "../styles.scss";
 
 const Login = props => {
   const [creds, setCreds] = useState({
@@ -25,25 +25,30 @@ const Login = props => {
     setCreds({ ...creds, [e.target.name]: e.target.value });
   };
   return (
-    <>
-      <h1>Welcome to the Bubble App!</h1>
-
-      <form onSubmit={login}>
-        <input
-          type="text"
-          name="username"
-          value={creds.username}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          value={creds.password}
-          onChange={handleChange}
-        />
-        <button>Log in</button>
-      </form>
-    </>
+    <div className="login">
+      <div>
+        <h1>Welcome to the Bubble App!</h1>
+      </div>
+      <div>
+        <form onSubmit={login}>
+          <h3>Username</h3>
+          <input
+            type="text"
+            name="username"
+            value={creds.username}
+            onChange={handleChange}
+          />
+          <h3>Password</h3>
+          <input
+            type="password"
+            name="password"
+            value={creds.password}
+            onChange={handleChange}
+          />
+          <button>Log in</button>
+        </form>
+      </div>
+    </div>
   );
 };
 
